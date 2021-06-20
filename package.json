@@ -1,0 +1,29 @@
+{
+  "name": "browsermon",
+  "version": "1.0.0",
+  "description": "Automatically reload browser when nodemon restarts http server during development",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tdrmk/browsermon.git"
+  },
+  "keywords": [
+    "nodemon",
+    "reload",
+    "browser-reload",
+    "refresh",
+    "auto-reload",
+    "auto-refresh"
+  ],
+  "author": "tdrk <tdrmk@pm.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tdrmk/browsermon/issues"
+  },
+  "homepage": "https://github.com/tdrmk/browsermon#readme",
+  "dependencies": {
+    "ws": "^7.5.0"
+  }
+}
