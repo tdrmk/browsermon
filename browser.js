@@ -1,5 +1,5 @@
 const URL = "ws://" + location.host + "/browsermon";
-const RETRY_TIMEOUT = 5000;
+const RETRY_TIMEOUT = 500;
 
 let previouslyConnected = false;
 
