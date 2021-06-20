@@ -1,8 +1,9 @@
 const http = require("http");
 const fs = require("fs");
+const path = require("path");
 const WebSocket = require("ws");
 
-const browserJsContents = fs.readFileSync("./browser.js");
+const browserJsContents = fs.readFileSync(path.join(__dirname, "browser.js"));
 
 const wss = new WebSocket.Server({ noServer: true });
 

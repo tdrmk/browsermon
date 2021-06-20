@@ -1,6 +1,6 @@
 {
   "name": "browsermon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Automatically reload browser when nodemon restarts http server during development",
   "main": "./index.js",
   "types": "./index.d.ts",
