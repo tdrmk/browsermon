@@ -2,16 +2,23 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const WebSocket = require("ws");
+const watch = require("node-watch");
 
 const browserJsContents = fs.readFileSync(path.join(__dirname, "browser.js"));
 
 const wss = new WebSocket.Server({ noServer: true });
 
-wss.on("connection", (ws) => {
+wss.on("connection", (ws, filename) => {
   // client got connected ...
+  // when a file got updated notify the browser
+  if (filename) {
+    watch(filename, { recursive: true }, () => {
+      ws.send("reload");
+    });
+  }
 });
 
-function browsermon({ server }) {
+function browsermon({ server, filename }) {
   if (process.env.NODE_ENV === "production") {
     // do nothing in production ...
     return;
@@ -32,7 +39,7 @@ function browsermon({ server }) {
   server.on("upgrade", (req, socket, head) => {
     if (req.url === "/browsermon") {
       wss.handleUpgrade(req, socket, head, (ws, req) => {
-        wss.emit("connection", ws, req);
+        wss.emit("connection", ws, filename);
       });
     }
   });

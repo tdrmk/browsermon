@@ -23,4 +23,8 @@ function createWS() {
       createWS();
     }, RETRY_TIMEOUT);
   };
+
+  ws.addEventListener("message", (event) => {
+    if (event.data === "reload") window.location.reload();
+  });
 }

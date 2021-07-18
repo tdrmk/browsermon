@@ -1,6 +1,6 @@
 {
   "name": "browsermon",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Automatically reload browser when nodemon restarts http server during development",
   "main": "./index.js",
   "types": "./index.d.ts",
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/tdrmk/browsermon#readme",
   "dependencies": {
+    "node-watch": "^0.7.1",
     "ws": "^7.5.0"
   }
 }
